@@ -4,7 +4,7 @@ public class HawaiianPizza extends PizzaMargherita{
    protected String ham;
    protected String pineapple;
 
-    public HawaiianPizza(String str1, String str2, int calories, double price, String ham, String pineapple) {
+    public HawaiianPizza(String str1, String str2, int calories, double price, String ham, String pineapple){
         super(str1, str2, calories, price);
         this.ham = ham;
         this.pineapple = pineapple;

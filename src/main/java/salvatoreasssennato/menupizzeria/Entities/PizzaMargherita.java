@@ -15,7 +15,6 @@ public class PizzaMargherita {
     this.calories = calories;
     this.price = price;
   }
-
   public String getStr1() {
     return str1;
   }

@@ -1,5 +1,6 @@
 package salvatoreasssennato.menupizzeria.Entities;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -84,6 +85,12 @@ public class menuConfig{
     Drinks Wine(){
       return new Drinks("Vino:Nero D'Avola",0.75,14,600,9.50);
     }
+    //@Bean
+    //Orders (@Value("${costoCoperto}") int costCovered){
+      //return new Orders(costCovered);
+    //}
+
+
     }
 
 

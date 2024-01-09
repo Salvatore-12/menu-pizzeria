@@ -1,5 +1,12 @@
 package salvatoreasssennato.menupizzeria.Entities;
 
-public class Orders extends TableOrder {
+import java.time.LocalDate;
 
+public class Orders extends TableOrder {
+private Drinks drinks;
+private HawaiianPizza hawaiianPizza;
+private Toppings toppings;
+private StateOrder stateOrder;
+private int numberCovered;
+private LocalDate acquisitionTime;
 }
