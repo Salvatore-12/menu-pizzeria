@@ -53,7 +53,7 @@ public class menuConfig{
     }
     @Bean
     Toppings getFrenchFriess(){
-        return new Toppings("Patatine frittte",150,2.00);
+        return new Toppings("Patatine fritte",150,2.00);
     }
     @Bean
     Toppings getSalami(){
