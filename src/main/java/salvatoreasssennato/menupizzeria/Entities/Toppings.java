@@ -6,10 +6,18 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+
 public class Toppings {
     private String name;
     private int calories;
     private double price;
 
+    @Override
+    public String toString() {
+        return "\n Toppings{" +
+                "name='" + name + '\'' +
+                ",calories=" + calories +
+                ",price=" + price +
+                '}';
+    }
 }
