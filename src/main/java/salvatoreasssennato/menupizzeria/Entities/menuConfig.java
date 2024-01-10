@@ -5,42 +5,57 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Configuration
 @PropertySource("application.properties")
 public class menuConfig{
-// PIZZE
-  @Bean
-  public PizzaMargherita Margherita(){
-      PizzaMargherita pizzaMargherita= new PizzaMargherita();
-      pizzaMargherita.setStr1("tomato");
-      pizzaMargherita.setStr2("cheese");
-      pizzaMargherita.setCalories(1010);
-      pizzaMargherita.setPrice(4.99);
-      return pizzaMargherita;
-  }
-  @Bean
-   public HawaiianPizza hawaiianPizza(){
-      HawaiianPizza hawaiianPizza=new HawaiianPizza();
-      hawaiianPizza.setStr1("tomato");
-      hawaiianPizza.setStr2("cheese");
-      hawaiianPizza.setHam("ham");
-      hawaiianPizza.setPineapple("pineapple");
-      hawaiianPizza.setCalories(1024);
-      hawaiianPizza.setPrice(6.99);
-      return hawaiianPizza;
+ //PIZZE
+    @Bean
+    public Pizza margherita(){
+      Pizza pizza=new Pizza();
+      pizza.setName("Margherita");
+      pizza.setToppingsList(Arrays.asList(getTomato(),getCheese()));
+      pizza.setCalories(1010);
+      pizza.setPrice(4.99);
+      return pizza;
+    }
 
-  }
-  @Bean
-    public SalamiPizza salamiPizza(){
-      SalamiPizza salamiPizza=new SalamiPizza();
-      salamiPizza.setStr1("tomato");
-      salamiPizza.setStr2("cheese");
-      salamiPizza.setSalami("salami");
-      salamiPizza.setCalories(1160);
-      salamiPizza.setPrice(5.99);
-      return salamiPizza;
-  }
+    @Bean
+    public Pizza hawaiian(){
+     Pizza pizza=new Pizza();
+     pizza.setName("Hawaiian");
+     pizza.setToppingsList(Arrays.asList(getTomato(),getCheese(),getHam(),getPineapple()));
+     pizza.setCalories(1024);
+     pizza.setPrice(6.99);
+     return pizza;
+    }
+    @Bean
+    public Pizza salamiPizza(){
+     Pizza pizza=new Pizza();
+     pizza.setName("SalamiPizza");
+     pizza.setToppingsList(Arrays.asList(getTomato(),getCheese(),getSalami()));
+     pizza.setCalories(1160);
+     pizza.setPrice(5.99);
+     return pizza;
+    }
+    @Bean("listaDiPizze")
+      List<Pizza>listaDiPizze(){
+        List<Pizza>ListPizza=new ArrayList<>();
+        ListPizza.add(margherita());
+        ListPizza.add(hawaiian());
+        ListPizza.add(salamiPizza());
+        return ListPizza;
+    }
+
 // TOPPINGS
+    @Bean
+    Toppings getTomato(){
+        return new Toppings("Tomato",150,1.00);
+    }
     @Bean
     Toppings getCheese(){
       return new Toppings("Cheese",350,2.00);
@@ -87,10 +102,6 @@ public class menuConfig{
     Drinks Wine(){
       return new Drinks("Vino:Nero D'Avola",0.75,14,600,9.50);
     }
-    @Bean
-   //TableOrder getcostCovered (@Value("${costoCoperto}") double costCovered){
-      //return new TableOrder(costCovered);
-    //}
 
 
     }

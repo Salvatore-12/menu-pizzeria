@@ -1,4 +1,4 @@
-package salvatoreasssennato.menupizzeria.Entities;
+package salvatoreasssennato.menupizzeria.Entities.Enum;
 
 public enum StateOrder {
     In_Corso,

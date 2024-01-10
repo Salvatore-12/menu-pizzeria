@@ -1,16 +1,15 @@
 package salvatoreasssennato.menupizzeria.Entities;
 
-import java.time.LocalDate;
+import salvatoreasssennato.menupizzeria.Entities.Enum.StateOrder;
 
-public class Orders extends TableOrder{
-private Drinks drinks;
-private HawaiianPizza hawaiianPizza;
-private Toppings toppings;
-private StateOrder stateOrder;
-private int numberCovered;
-private LocalDate acquisitionTime;
+import java.time.LocalTime;
 
-    public Orders(long id, int maxcovered, int costCovered, StateTable stateTable) {
-        super(id, maxcovered, costCovered, stateTable);
-    }
+public class Orders{
+    private int number;
+    private StateOrder stateOrder;
+    private int numberCovered;
+    private LocalTime acquisitionTime;
+    private Table table;
+
+
 }
