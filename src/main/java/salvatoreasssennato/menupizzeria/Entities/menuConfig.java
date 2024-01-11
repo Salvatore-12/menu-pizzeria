@@ -1,14 +1,13 @@
 package salvatoreasssennato.menupizzeria.Entities;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import salvatoreasssennato.menupizzeria.Entities.Enum.StateTable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Configuration
 @PropertySource("application.properties")
@@ -88,21 +87,29 @@ public class menuConfig{
     //DRINKS
     @Bean
     Drinks Water(){
-      return new Drinks("Acqua",0.5,0,0,1.29);
+      return new Drinks(1,"Acqua",0.5,0,0,1.29);
     }
     @Bean
     Drinks Lemonade(){
-      return new Drinks("Limonata",0.33, 0,128,1.29);
+      return new Drinks(2,"Limonata",0.33, 0,128,1.29);
     }
     @Bean
     Drinks Beer(){
-      return new Drinks("Birra:Moretti",0.66,5,37,1.35);
+      return new Drinks(3,"Birra:Moretti",0.66,5,37,1.35);
     }
     @Bean
     Drinks Wine(){
-      return new Drinks("Vino:Nero D'Avola",0.75,14,600,9.50);
+      return new Drinks(4,"Vino:Nero D'Avola",0.75,14,600,9.50);
     }
-
+ // TABLES
+    @Bean
+    public Tables getTavolo1(){
+        return new Tables(1,5, StateTable.Libero);
+    }
+    @Bean
+    public Tables getTavolo2(){
+        return new Tables(2,3, StateTable.Libero);
+    }
 
     }
 

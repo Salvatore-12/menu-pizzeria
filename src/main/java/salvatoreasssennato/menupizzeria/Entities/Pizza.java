@@ -1,14 +1,25 @@
 package salvatoreasssennato.menupizzeria.Entities;
 
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Entity
+@Table(name="pizza")
 public class Pizza {
+    @Id
+    @GeneratedValue
+    private long id;
+    @Column(name = "name", nullable = false, length = 255)
     private String name;
+    @ElementCollection
+    @CollectionTable(name = "pizza_toppings", joinColumns = @JoinColumn(name = "pizza_id"))
     private List<Toppings>toppingsList=new ArrayList<>();
+
+    @Column(name = "calories")
     private int calories;
+    @Column(name = "price")
     private double price;
 
     public Pizza() {
